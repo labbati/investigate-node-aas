@@ -1,0 +1,16 @@
+{
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "author": "",
+  "license": "ISC",
+  "scripts": {
+    "start": "node --require dd-trace/init app.js"
+  },
+  "dependencies": {
+    "axios": "^1.7.2",
+    "dd-trace": "^5.14.1",
+    "express": "^4.19.2",
+    "import-in-the-middle": "^1.7.4"
+  }
+}

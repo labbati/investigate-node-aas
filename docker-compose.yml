@@ -1,0 +1,18 @@
+version: '3.1'
+
+services:
+
+  agent:
+    environment:
+      - DD_API_KEY=${DATADOG_API_KEY_STAGING}
+      - DD_APM_ENABLED=true
+      - DD_ENV=labbati-local
+      - DD_APM_ENV=labbati-local
+      - DD_LOG_LEVEL=debug
+    image: datadog/agent:latest
+    ports:
+      - "8126:8126"
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock:ro
+      - /proc/:/host/proc/:ro
+      - /sys/fs/cgroup/:/host/sys/fs/cgroup:ro
