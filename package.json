@@ -9,7 +9,6 @@
   },
   "dependencies": {
     "axios": "^1.7.2",
-    "dd-trace": "^5.14.1",
     "express": "^4.19.2",
     "import-in-the-middle": "^1.7.4"
   }
