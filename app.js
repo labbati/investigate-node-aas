@@ -1,7 +1,7 @@
 const express = require('express')
 const axios = require('axios');
 const app = express()
-const port = 3000
+const port = 8080
 
 app.get('/', (req, res) => {
     var content = `
@@ -25,7 +25,7 @@ app.get('/', (req, res) => {
             env: 'labbati-local',
             // Specify a version number to identify the deployed version of your application in Datadog
             // version: '1.0.0',
-            allowedTracingUrls: ["http://localhost:3000"],
+            allowedTracingUrls: ["http://localhost:8080"],
             sessionSampleRate: 100,
             sessionReplaySampleRate: 20,
             trackUserInteractions: true,
