@@ -16,7 +16,7 @@ app.get('/', (req, res) => {
             src="https://www.datadoghq-browser-agent.com/us1/v5/datadog-rum.js"
             type="text/javascript">
         </script>
-        <!--script>
+        <script>
             window.DD_RUM && window.DD_RUM.init({
             clientToken: 'pub080bc2d58b329f573ba8dff4d642b138',
             applicationId: '7c732f70-d533-4372-83cb-6e2d5f951b6b',
@@ -41,7 +41,7 @@ app.get('/', (req, res) => {
                 xhttp.send();
                 console.log('Done');
             }
-        </script-->
+        </script>
     </head>
 
     <body>
@@ -70,6 +70,13 @@ app.get('/ajax', (req, res) => {
         });
 });
 
-app.listen(port, () => {
-    console.log(`Example app listening on port ${port}`)
-})
+
+(async () => {
+    process._rawDebug('about to wait a very long time')
+    for (let i = 0; i < 10000; i++) await new Promise(r => r())
+    process._rawDebug('done waiting a very long time')
+    app.listen(port, () => {
+        console.log(`Example app listening on port ${port}`)
+    })
+})()
+
