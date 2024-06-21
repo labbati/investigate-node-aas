@@ -72,9 +72,9 @@ app.get('/ajax', (req, res) => {
 
 
 (async () => {
-    process._rawDebug('about to wait a very long time')
-    for (let i = 0; i < 10000; i++) await new Promise(r => r())
-    process._rawDebug('done waiting a very long time')
+    // process._rawDebug('about to wait a very long time')
+    // for (let i = 0; i < 10000; i++) await new Promise(r => r())
+    // process._rawDebug('done waiting a very long time')
     app.listen(port, () => {
         console.log(`Example app listening on port ${port}`)
     })
