@@ -50,7 +50,7 @@ app.get('/', (req, res) => {
 
     <body>
         <h1>Page Title</h1>
-        <p>Hello! 2024-06-24 15:03</p>
+        <p>Hello! 2024-06-24 16:50</p>
         <button onclick="sendAjax()">Send</button>
     </body>
     </html>
