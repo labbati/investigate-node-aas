@@ -3,7 +3,7 @@ const axios = require('axios');
 const app = express()
 const port = 8080
 
-const BUILD = '0000001';
+const BUILD = '0000002';
 
 function directLog(message) {
     process._rawDebug(`Build [${BUILD}] --> ${message}`);
@@ -81,7 +81,7 @@ app.get('/ajax', (req, res) => {
 
 (async () => {
     directLog('about to wait a very long time')
-    for (let i = 0; i < 10; i++) {
+    for (let i = 0; i < 10_000; i++) {
         // process._rawDebug(`Awaiting promise ${i}`);
         await new Promise(r => r());
     }
