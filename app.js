@@ -50,15 +50,17 @@ app.get('/', (req, res) => {
 
     <body>
         <h1>Page Title</h1>
-        <p>Hello! 2024-06-24 16:50</p>
+        <p>Hello! 2024-06-24 17:32</p>
         <button onclick="sendAjax()">Send</button>
     </body>
     </html>
     `;
+    process._rawDebug(`Serving a static request`)
     res.send(content);
 })
 
 app.get('/ajax', (req, res) => {
+    process._rawDebug(`Serving a static request`)
     axios.get('http://localhost:5163')
         .then(function (response) {
             // handle success
@@ -77,7 +79,7 @@ app.get('/ajax', (req, res) => {
 
 (async () => {
     process._rawDebug('about to wait a very long time')
-    for (let i = 0; i < 10_000; i++) {
+    for (let i = 0; i < 10; i++) {
         // process._rawDebug(`Awaiting promise ${i}`);
         await new Promise(r => r());
     }
