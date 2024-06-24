@@ -50,7 +50,7 @@ app.get('/', (req, res) => {
 
     <body>
         <h1>Page Title</h1>
-        <p>Hello! 2024-06-24 14:55</p>
+        <p>Hello! 2024-06-24 14:59</p>
         <button onclick="sendAjax()">Send</button>
     </body>
     </html>
@@ -75,16 +75,16 @@ app.get('/ajax', (req, res) => {
 });
 
 
-// (async () => {
-//     // process._rawDebug('about to wait a very long time')
-//     // for (let i = 0; i < 10000; i++) await new Promise(r => r())
-//     // process._rawDebug('done waiting a very long time')
-//     // app.listen(port, () => {
-//     //     console.log(`Example app listening on port ${port}`)
-//     // })
-// })()
+(async () => {
+    process._rawDebug('about to wait a very long time')
+    // for (let i = 0; i < 10000; i++) await new Promise(r => r())
+    process._rawDebug('done waiting a very long time')
+    app.listen(port, () => {
+        console.log(`Example app listening on port ${port}`)
+    })
+})()
 
-app.listen(port, () => {
-    console.log(`Example app listening on port ${port}`)
-});
+// app.listen(port, () => {
+//     console.log(`Example app listening on port ${port}`)
+// });
 
