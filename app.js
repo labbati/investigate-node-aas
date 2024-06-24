@@ -3,9 +3,11 @@ const axios = require('axios');
 const app = express()
 const port = 8080
 
-process._rawDebug('debug info via _rawDebug');
-console.log('debug info via console.log');
-console.error('debug info via console.error');
+const BUILD = '0000001';
+
+function directLog(message) {
+    process._rawDebug(`Build [${BUILD}] --> ${message}`);
+}
 
 app.get('/', (req, res) => {
     var content = `
@@ -55,12 +57,12 @@ app.get('/', (req, res) => {
     </body>
     </html>
     `;
-    process._rawDebug(`Serving a static request`)
+    directLog(`Serving a static request`)
     res.send(content);
 })
 
 app.get('/ajax', (req, res) => {
-    process._rawDebug(`Serving a static request`)
+    directLog(`Serving a ajax request`)
     axios.get('http://localhost:5163')
         .then(function (response) {
             // handle success
@@ -68,7 +70,7 @@ app.get('/ajax', (req, res) => {
         })
         .catch(function (error) {
             // handle error
-            console.log(error);
+            directLog(error);
         })
         .finally(function () {
             // always executed
@@ -78,14 +80,14 @@ app.get('/ajax', (req, res) => {
 
 
 (async () => {
-    process._rawDebug('about to wait a very long time')
+    directLog('about to wait a very long time')
     for (let i = 0; i < 10; i++) {
         // process._rawDebug(`Awaiting promise ${i}`);
         await new Promise(r => r());
     }
-    process._rawDebug('done waiting a very long time')
+    directLog('done waiting a very long time')
     app.listen(port, () => {
-        process._rawDebug(`Example app listening on port ${port}`)
+        directLog(`Example app listening on port ${port}`)
     });
 })()
 
