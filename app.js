@@ -77,13 +77,13 @@ app.get('/ajax', (req, res) => {
 
 (async () => {
     process._rawDebug('about to wait a very long time')
-    for (let i = 0; i < 10; i++) {
+    for (let i = 0; i < 10_000; i++) {
         process._rawDebug(`Awaiting promise ${i}`);
         await new Promise(r => r());
     }
     process._rawDebug('done waiting a very long time')
     app.listen(port, () => {
-        console.log(`Example app listening on port ${port}`)
+        process._rawDebug(`Example app listening on port ${port}`)
     });
 })()
 
