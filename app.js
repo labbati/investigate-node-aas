@@ -1,7 +1,7 @@
 const express = require('express')
 const axios = require('axios');
 const app = express()
-const port = 8080
+const port = process.env.PORT || 8080
 
 const BUILD = '0000003';
 
@@ -10,6 +10,7 @@ function directLog(message) {
 }
 
 app.get('/', (req, res) => {
+    process._rawDebug(`This is a raw log`);
     res.send('OK');
 });
 
