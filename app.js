@@ -14,6 +14,11 @@ app.get('/', (req, res) => {
     res.send('OK');
 });
 
+app.get('/health', (req, res) => {
+    process._rawDebug(`This is a raw log`);
+    res.send('all good');
+});
+
 // app.get('/rum', (req, res) => {
 //     var content = `
 //     <!DOCTYPE html>
